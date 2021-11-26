@@ -1,0 +1,107 @@
+#:kivy 1.0
+MainWidget:
+
+<MainWidget>:
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+
+            orientation: "horizontal"
+            size_hint: 1, None
+            height: "100dp"
+            Image:
+                source: 'Header.jpeg'
+                allow_stretch: True
+                keep_ratio: False
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, None
+            height: "60dp"
+            valign: 'top'
+            Label:
+                text: "Balance :"
+                color: .2, .25, .32
+
+            Label:
+                text: "my money"
+                color: .2, .25, .32
+
+                password: True
+                password_mask: "*******"
+
+        BoxLayout:
+            size_hint: 1, None
+            height: "50dp"
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: "5dp"
+            padding: "10dp", "0dp", "10dp", "0dp"
+            size_hint: 1, None
+            height: "30dp"
+
+            MDTextField:
+                hint_text: "Wallet Address"
+                helper_text: "or use Qr code scanner"
+                helper_text_mode:"on_focus"   #persistant or on_focus
+                pos_hint: {'center_x': 0.5, 'center_y':0.5}
+                size_hint_x: None
+                width: "300dp"
+
+
+            Button:
+                size_hint: None , 1
+                width: "50dp"
+                background_color : .22, .99, .99, 1
+                text: "QR"
+                on_press: root.on_pressed_qr()
+
+            Button:
+                size_hint: None, 1
+                width: "50dp"
+                background_color : .22, .99, .99, 1
+                text: "Paste"
+                on_press:root.on_pressed_paste()
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, 0.02
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, None
+            height: "30dp"
+            padding: "10dp", "0dp", "10dp", "0dp"
+            spacing: "5dp"
+            MDTextField:
+                hint_text: "Amount"
+                helper_text: "Pay attention to the Unit"
+                helper_text_mode:"on_focus"   #persistant or on_focus
+                pos_hint: {'center_x': 0.5, 'center_y':0.5}
+                size_hint_x: None
+                width: "300dp"
+
+            Button:
+                size_hint: None , 1
+                width: "50dp"
+                background_color : .22, .99, .99, 1
+                text: "MAX"
+                on_press:root.on_pressed_max()
+            Button:
+                size_hint: None , 1
+                width: "50dp"
+                background_color : .22, .99, .99, 1
+                text: "Unit"
+                on_press:root.on_pressed_unit()
+
+        BoxLayout:
+            orientation: "horizontal"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: 1, None
+            height: "50dp"
+            valign: "bottom"
+            Button:
+                text: 'Send'
+                background_color : .2, 1, .2
